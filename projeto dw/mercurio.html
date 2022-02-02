@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urano | Loja Planetária</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--fontes do google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section>
+        <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+            <h1><a href = "home.html">LOJA PLANETÁRIA</a></h1>
+            <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+        </header>
+
+        <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+            <ul>
+                <li><a href = "home.html">Home</a></li>
+                <li><a href = "quemsomos.html">Quem Somos</a></li>
+                <li class = "produtos"><a href = "index.html">Produtos</a>
+                    <ul>
+                        <li><a href="mercurio.html">Mercúrio</a></li>
+                        <li><a href="marte.html">Marte</a></li>
+                        <li><a href="jupiter.html">Júpiter</a></li>
+                        <li><a href="saturno.html">Saturno</a></li>
+                        <li><a href="netuno.html">Netuno</a></li>
+                    </ul>
+                    </li>
+                <li><a href = "contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="infoplaneta">
+                    <h2>Mercúrio</h2>
+                    <div class = "textofoto">
+                        <img src="img/mercurio.jpg" alt="Planeta Mercúrio"  width="25%">
+                        <p>É considerado o menor planeta do Sistema Solar e o planeta mais próximo do sol, tornando assim, a vida nesse planeta mais difícil.
+                            Por estar tão próximo do Sol, a atmosfera de Mercúrio é bem instável e fraca, se comparada com a da Terra. Em geral, possui gases como hélio, sódio e oxigênio, com predomínio dos dois primeiros.</p>
+                        <h3>Dados gerais de Mercúrio</h3>
+                        <ul>
+                            <li>Diâmetro equatorial: 4.879 quilômetros.</li>
+                            <li>Área da superfície: 7,5 x 107 km².</li>
+                            <li>Massa: 3.302×1023 kg (330 bilhões de bilhões de toneladas).</li>
+                            <li>Distância do Sol: 57.910.000 de quilômetros.</li>
+                            <li>Satélite natural: não possui.</li>
+                            <li>Período de rotação: aproximadamente 59 dias.</li>
+                            <li>Período de translação: aproximadamente 88 dias.</li>
+                            <li>Temperatura média: devido à alta variação térmica, o planeta possui uma temperatura média de 179 ºC.</li>
+                        </ul>
+                    </div>
+            </div>
+        </main>
+
+        <footer> <!--Fundo cinza escuro, nome loja, sloganzinho, ano-->
+            <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+        </footer>
+        
+        <script>
+            //INÍCIO - Script do canvas
+            //linha de pontos laranja
+            var ctx2 = document.getElementById("linha").getContext("2d");
+            var img = new Image();
+            img.src = 'img/bolinha-com-fundo.png';
+            img.onload = function () {
+                var pattern=ctx2.createPattern(img, 'repeat-x');
+                ctx2.fillStyle = pattern;
+                ctx2.fillRect(0,10,3500,25);
+            };
+            //FIM - Script do Canvas
+    
+        </script>
+    </section>
+</body>
+</html>

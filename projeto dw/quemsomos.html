@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quem Somos | Loja Planetária</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--fontes do google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+    <!--biblioteca para o mapa-->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <section>
+        <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+            <h1><a href = "home.html">LOJA PLANETÁRIA</a></h1>
+            <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+        </header>
+
+        <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+            <ul>
+                <li><a href = "home.html">Home</a></li>
+                <li><a href = "quemsomos.html">Quem Somos</a></li>
+                <li class = "produtos"><a href = "index.html">Produtos</a>
+                    <ul>
+                        <li><a href="mercurio.html">Mercúrio</a></li>
+                        <li><a href="marte.html">Marte</a></li>
+                        <li><a href="jupiter.html">Júpiter</a></li>
+                        <li><a href="saturno.html">Saturno</a></li>
+                        <li><a href="netuno.html">Netuno</a></li>
+                    </ul>
+                    </li>
+                <li><a href = "contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="texto">
+            <h2>Quem Somos</h2>
+            <!--texto sobre a empresa-->
+            <h3>A Empresa</h3>
+            <p>&nbsp;&nbsp;&nbsp;A história da Loja Planetária é recente, mas já é grande. Somos considerados a maior loja de 
+                    planetas do mundo, além de, muito em breve, também atuarmos no segmento de constelações. Buscamos sempre oferecer 
+                        o melhor aos nossos clientes e isso só é possível com a ajuda de nossa valorosa sócia, a agência da NASA, sigla essa que 
+                            significa National Aeronautics and Space Administration, traduzida para o português como Administração Nacional 
+                                da Aeronáutica e do Espaço.</p>
+            <p>&nbsp;&nbsp;&nbsp;Utilizamos suas pesquisas e estudos para garantir a adequação de nossos produtos e atendimento, 
+                    buscando sempre a forma mais segura de sustentar a vida fora da Terra e a locomoção entre cada planeta. Estamos 
+                        localizados na sede da agência, em Washington, DC - EUA, mas nossas vendas são facilmente realizadas virtualmente, 
+                            através do formulário que pode ser encontrado na aba Contato.</p>
+            </div>
+            <!--mapa com a localização da loja-->
+            <div id="mapa"></div>
+            <!--texto sobre a história da empresa-->
+            <div class="texto">
+                <h3>Nossa História</h3>
+                <p>&nbsp;&nbsp;&nbsp;Após meses de planejamento, decidimos que era hora de iniciarmos o nosso empreendimento mais
+                    arriscado e colocarmos em prática a venda exclusiva de planetas. Apesar do receio, juntamos toda a coragem possível 
+                        e, em janeiro de 2022, abrimos os trabalhos que, para a nossa felicidade, tiveram como resultado alguns produtos 
+                            esgotados logo em fevereiro. Rapidamente, nos foi concedido o importante prêmio de vendas valiosas da Associação 
+                                de Lojas, o que consideramos uma das nossas maiores conquistas, junto, sempre, da grande satisfação do público 
+                                    atendido.</p>
+            </div>
+            <!--imagem do certificado-->
+            <img id="certificado" src="img/certificado.png" alt="Certificado de premiação da Associação de Lojas para a Loja Planetária">
+            <!--texto sobre missão, visão e valores-->
+            <div class="texto">
+                <h3>Missão</h3>
+                <p>&nbsp;&nbsp;&nbsp;Contribuir para o bem-estar do cliente, através de lares mais aconchegantes e facilidade de compra, 
+                    garantindo o melhor ambiente possível para moradia.</p>
+                <h3>Visão</h3>
+                <p>&nbsp;&nbsp;&nbsp;Ser sempre reconhecida mundialmente como a melhor no segmento de planetas.
+                </p>
+                <h3>Valores</h3>
+                <ul>
+                    <li>Honestidade no que é oferecido</li>
+                    <li>Inovação e modernidade</li>
+                    <li>Foco na satisfação e necessidades do cliente</li>
+                    <li>Incentivo ao estudo da Ciência</li>
+                    <li>Segurança em todo o processo</li>
+                </ul>
+            </div>
+        </main>
+
+    <footer> <!--Rodapé com fundo cinza escuro, nome da loja, ano, sloganzinho-->
+        <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+    </footer>
+    </section>
+
+    <script>
+        //INÍCIO - Script do canvas
+        //linha de pontos laranja
+        var ctx2 = document.getElementById("linha").getContext("2d");
+        var img = new Image();
+        img.src = 'img/bolinha-com-fundo.png';
+        img.onload = function () {
+            var pattern=ctx2.createPattern(img, 'repeat-x');
+            ctx2.fillStyle = pattern;
+            ctx2.fillRect(0,10,3500,25);
+        };
+        //FIM - Script do Canvas
+        
+
+        //INÍCIO - Script do mapa (OpenStreetMap)
+        var element = document.getElementById('mapa');
+        var mapa = L.map(element);
+
+        //desenha mapa com zoom 14
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(mapa);
+        var target = L.latLng('38.88291', '-77.01635');
+        mapa.setView(target, 14);
+
+        //marcador
+        L.marker(target, {title: "NASA"}).addTo(mapa).bindPopup("NASA - Loja Planetária").openPopup();
+        //FIM - Script do mapa
+
+    </script>
+</body>
+</html>

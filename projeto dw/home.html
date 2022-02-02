@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loja Planetária</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--fontes do google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section>
+    <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+        <h1><a href = "index.html">LOJA PLANETÁRIA</a></h1>
+        <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+    </header>
+    <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+        <ul>
+            <li><a href = "index.html">Home</a></li>
+            <li><a href = "quemsomos.html">Quem Somos</a></li>
+            <li class = "produtos"><a href = "index.html">Produtos</a>
+                <ul>
+                    <li><a href="mercurio.html">Mercúrio</a></li>
+                    <li><a href="marte.html">Marte</a></li>
+                    <li><a href="jupiter.html">Júpiter</a></li>
+                    <li><a href="saturno.html">Saturno</a></li>
+                    <li><a href="netuno.html">Netuno</a></li>
+                </ul>
+                </li>
+            <li><a href = "contato.html">Contato</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!--slideshow com 3 fotos-->
+        <div class="slideshow">
+            <!--imagens-->
+            <div class="slides some">
+                <img src="img/sistema-solar.png" style="width: 100%;" alt="Sistema solar: Lua 
+                    e planetas girando em torno do sol">
+            </div>
+
+            <div class="slides some">
+                <img src="img/tres-marias.png" style="width: 100%" alt="Constelação As Três Marias">
+            </div>
+
+            <div class="slides some">
+                <img src="img/foguete.png" style="width: 100%" alt="Foguete decolando do planeta Terra">
+            </div>
+            <!--setinhas-->
+            <a class="anterior" onclick="passaSlide(-1)">&#10094;</a>
+            <a class="proximo" onclick="passaSlide(1)">&#10095;</a>
+
+        </div>
+        <!--bolinhas do slideshow-->
+        <div class="pontos">
+            <span class="ponto" onclick="slideAtual(1)"></span>
+            <span class="ponto" onclick="slideAtual(2)"></span>
+            <span class="ponto" onclick="slideAtual(3)"></span>
+        </div>
+
+        <br>
+        <!--retângulos com promoções-->
+        <canvas id="promocoes" width="1000" height="100"></canvas>
+
+        <!--produtos mais vistos - imagem, nome, preço, link-->
+        <div class = anuncios>
+            <h2>Mais Vistos</h2>
+            <a href="marte.html">
+                <div class = "planetas">
+                    <img src="img/marte.png">
+                    <h3>Marte</h3>
+                </div>
+            </a>
+
+            <a href="mercurio.html">
+                <div class = "planetas">
+                    <img src="img/mercurio.jpg">
+                    <h3>Mercúrio</h3>
+                </div>             
+            </a>
+
+            <a href="saturno.html">
+                <div class = "planetas">
+                    <img src="img/saturno.jpg">
+                    <h3>Saturno</h3>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer> <!--Rodapé com fundo cinza escuro, nome da loja, ano, sloganzinho-->
+        <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+    </footer>
+    </section>
+
+    <script>
+        //INÍCIO - Script do slideshow
+
+        var numSlide = 1;
+        mostraSlide(numSlide);
+
+        function passaSlide(n) {
+        mostraSlide(numSlide += n);
+        }
+
+        function slideAtual(n) {
+        mostraSlide(numSlide = n);
+        }
+
+        function mostraSlide(n) {
+        var i;
+        var slides = document.getElementsByClassName("slides");
+        var pontos = document.getElementsByClassName("ponto");
+        if (n > slides.length) {numSlide = 1}
+        if (n < 1) {numSlide = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < pontos.length; i++) {
+            pontos[i].className = pontos[i].className.replace(" ativo", "");
+        }
+        slides[numSlide-1].style.display = "flex";
+        pontos[numSlide-1].className += " ativo";
+        }
+        //FIM - Script do slideshow
+
+
+        //INÍCIO - Script do canvas
+
+        //desenha retângulo com cantos arredondados
+        var ctx = document.getElementById("promocoes").getContext("2d");
+        CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, r) {
+        if (width < 2 * r) r = width / 2;
+        if (height < 2 * r) r = height / 2;
+        this.beginPath();
+        this.moveTo(x+r, y);
+        this.arcTo(x+width, y, x+width, y+height, r);
+        this.arcTo(x+width, y+height, x, y+height, r);
+        this.arcTo(x, y+height, x, y, r);
+        this.arcTo(x, y, x+width, y, r);
+        this.closePath();
+        return this;
+        }
+
+        //desenha imagens
+        var foto;
+        var x, y, width, height;
+        function desenhaImagem(foto, x, y, width, height) { 
+            var imagem = new Image(); 
+            imagem.src = foto; 
+            imagem.onload = function() { 
+                ctx.drawImage(imagem, x, y, width, height); 
+            } 
+        }
+
+        //retângulos das promoções com as imagens dentro deles e o texto do lado
+        //PRIMEIRO
+        ctx.fillStyle = "#0A001E";
+        ctx.roundRect(0, 10, 140, 80, 20).fill();
+        //imagens estrelas
+        desenhaImagem("img/estrelas.png", 0, 13, 100, 100);
+        desenhaImagem("img/estrelas2.png", 75, 8, 70, 80);
+        desenhaImagem("img/estrelas3.png", 15, 16, 25, 25);
+        desenhaImagem("img/estrelas3.png", 55, 16, 20, 20);
+        //texto
+        ctx.font = 'bold 1.5em Arial';
+        ctx.fillText('constelações', 170, 45);
+        ctx.font = '1.5em Arial';
+        ctx.fillText('3 pelo preço de 1', 155, 70);
+
+        //SEGUNDO
+        ctx.fillStyle = "#0A001E";
+        ctx.roundRect(400, 10, 140, 80, 20).fill();
+        //imagens bandeiras
+        desenhaImagem("img/usa.png", 410, 23, 75, 75);
+        desenhaImagem("img/br.png", 463, 20, 70, 70);
+        //texto
+        ctx.font = 'bold 1.5em Arial';
+        ctx.fillText('brindes', 565, 45);
+        ctx.font = '1.5em Arial';
+        ctx.fillText('incríveis', 565, 70);
+
+        //TERCEIRO
+        ctx.fillStyle = "#0A001E";
+        ctx.roundRect(710, 10, 140, 80, 20).fill();
+        //imagens planetas
+        desenhaImagem("img/jupiter.png", 723, 16, 55, 55);
+        desenhaImagem("img/terra.png", 785, 33, 55, 55);
+        //texto
+        ctx.font = 'bold 1.5em Arial';
+        ctx.fillText('planetas', 880, 45);
+        ctx.font = '1.5em Arial';
+        ctx.fillText('2 por R$ 1 bi', 860, 70);
+
+
+        //linha de pontos laranja
+        var ctx2 = document.getElementById("linha").getContext("2d");
+        var img = new Image();
+        img.src = 'img/bolinha-com-fundo.png';
+        img.onload = function () {
+            var pattern=ctx2.createPattern(img, 'repeat-x');
+            ctx2.fillStyle = pattern;
+            ctx2.fillRect(0,10,3500,25);
+        };
+        //FIM - Script do Canvas
+
+    </script>
+</body>
+</html>

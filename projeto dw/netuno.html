@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urano | Loja Planetária</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--fontes do google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section>
+        <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+            <h1><a href = "home.html">LOJA PLANETÁRIA</a></h1>
+            <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+        </header>
+
+        <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+            <ul>
+                <li><a href = "home.html">Home</a></li>
+                <li><a href = "quemsomos.html">Quem Somos</a></li>
+                <li class = "produtos"><a href = "index.html">Produtos</a>
+                    <ul>
+                        <li><a href="mercurio.html">Mercúrio</a></li>
+                        <li><a href="marte.html">Marte</a></li>
+                        <li><a href="jupiter.html">Júpiter</a></li>
+                        <li><a href="saturno.html">Saturno</a></li>
+                        <li><a href="netuno.html">Netuno</a></li>
+                    </ul>
+                    </li>
+                <li><a href = "contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <main>
+        <div class="infoplaneta">
+            <h2>Netuno</h2>
+                <div class = "textofoto">
+                    <img src="img/netuno.jpg" alt="Planeta Netuno" width="25%">
+                    <p>É o quarto maior entre os oito planetas que compõem o Sistema solar. 
+                        Descoberto em 1846, quando os astrônomos analisaram perturbações gravitacionais 
+                            na órbita de Urano, que é o planeta mais próximmo de netuno.</p>
+                </div>
+                   <h3>Dados gerais de Netuno</h3>
+                   <ul>
+                       <li>Diâmetro equatorial: 49.528 quilômetros.</li>
+                       <li>Distância do Sol: 4,5 bilhões de quilômetros.</li>
+                       <li>Satélite natural: 13 luas, os dois mais importantes são Tristão e Nereida.</li>
+                       <li>Período de rotação: aproximadamente 16 horas.</li>
+                       <li>Período de translação: aproximadamente a 164 anos.</li>
+                       <li>Temperatura média: -200ºC. Além das baixas temperaturas, os ventos podem atingir até 2 mil k/h.</li>
+                   </ul>
+               </div>
+        </div>
+        </main>
+
+        <footer> <!--Fundo cinza escuro, nome loja, sloganzinho, ano-->
+            <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+        </footer>
+
+        <script>
+            //INÍCIO - Script do canvas
+            //linha de pontos laranja
+            var ctx2 = document.getElementById("linha").getContext("2d");
+            var img = new Image();
+            img.src = 'img/bolinha-com-fundo.png';
+            img.onload = function () {
+                var pattern=ctx2.createPattern(img, 'repeat-x');
+                ctx2.fillStyle = pattern;
+                ctx2.fillRect(0,10,3500,25);
+            };
+            //FIM - Script do Canvas
+    
+        </script>
+    </section>
+</body>
+</html>

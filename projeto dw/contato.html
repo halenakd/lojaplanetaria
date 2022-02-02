@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Loja Planetária</title>
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--fontes do google-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <section>
+            <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+                <h1><a href = "home.html">LOJA PLANETÁRIA</a></h1>
+                <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+            </header>
+            <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+                <ul>
+                    <li><a href = "home.html">Home</a></li>
+                    <li><a href = "quemsomos.html">Quem Somos</a></li>
+                    <li class = "produtos"><a href = "index.html">Produtos</a>
+                        <ul>
+                            <li><a href="mercurio.html">Mercúrio</a></li>
+                            <li><a href="marte.html">Marte</a></li>
+                            <li><a href="jupiter.html">Júpiter</a></li>
+                            <li><a href="saturno.html">Saturno</a></li>
+                            <li><a href="netuno.html">Netuno</a></li>
+                        </ul>
+                        </li>
+                    <li><a href = "contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+           
+            <main> 
+            <!-- Parte sobre contatos-->
+                <div class="linha">
+                    <div class="coluna col-md-12 contato">
+                        <h2>Envie sua mensagem!</h2>
+                        <p>Ficou interessado em algum de nossos produtos?</p>
+                        <p>Entre em contato diretamente conosco através deste formulário!</p>
+                        <form action="https://formsubmit.co/luanaalvesp2811@gmail.com" method="POST">
+                            <label for="nome">Nome completo:</label>
+                            <input type="text" name="name" id="nome">
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" id="email">
+                            <label for="assunto">Assunto:</label>
+                            <input type="text" name="subject" id="assunto">
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea name="message" id="mensagem"></textarea>
+                            <input type="reset" class="botao" value="Limpar">
+                            <input type="submit" class="botao" name="enviar" value="Enviar Mensagem &raquo;">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contatos">
+                    <h2>Contato</h2>
+                    <ul class="sem-padding sem-marcador">
+                        <li><img src="img/whats.png" alt="" class="iconesContato"> Whatsapp: <strong>(47) 99191-7151 -- (47) 98836-7380</strong></li>
+                        <li><img src="img/email.png" alt="" class="iconesContato"> Email: <strong>luanaalvesp2811@gmail.com -- halenakulmannd@gmail.com</strong></li>
+                    </ul>
+                </div>
+            </main>
+
+            <footer> <!--Fundo cinza escuro, nome loja, sloganzinho, ano-->
+                <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+            </footer>
+        </section>
+        <script>
+
+            //INÍCIO - Script do canvas
+    
+            //linha de pontos laranja
+            var ctx2 = document.getElementById("linha").getContext("2d");
+            var img = new Image();
+            img.src = 'img/bolinha-com-fundo.png';
+            img.onload = function () {
+                var pattern=ctx2.createPattern(img, 'repeat-x');
+                ctx2.fillStyle = pattern;
+                ctx2.fillRect(0,10,3500,25);
+            };
+            //FIM - Script do Canvas
+        </script>
+    </body>
+</html>

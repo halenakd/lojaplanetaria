@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urano | Loja Planetária</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--fontes do google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section>
+        <header> <!--Nome da loja laranja, fundo cinza escuro, linha de bolinhas laranja--> 
+            <h1><a href = "home.html">LOJA PLANETÁRIA</a></h1>
+            <canvas id="linha" width="3500" height="25" style="max-width: 100%;"></canvas>
+        </header>
+
+        <nav> <!--Barra de navegação com home, quem somos, produtos, contato, fundo cinza mais claro-->
+            <ul>
+                <li><a href = "home.html">Home</a></li>
+                <li><a href = "quemsomos.html">Quem Somos</a></li>
+                <li class = "produtos"><a href = "index.html">Produtos</a>
+                    <ul>
+                        <li><a href="mercurio.html">Mercúrio</a></li>
+                        <li><a href="marte.html">Marte</a></li>
+                        <li><a href="jupiter.html">Júpiter</a></li>
+                        <li><a href="saturno.html">Saturno</a></li>
+                        <li><a href="netuno.html">Netuno</a></li>
+                    </ul>
+                    </li>
+                <li><a href = "contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div>
+                <div class = "textofoto">
+                    <h2>Marte</h2>
+                    <img src="img/marte.jpg" alt="Planeta Marte"  width="25%">
+                    <p>Existem diversas feições na superfície de Marte que indicam a existência pretérita de água líquida naquele planeta. Muitas missões de exploração tentam hoje descobrir a existência de vida pretérita e o potencial do planeta para suportar formas de vida.</p>                              
+                </div>   
+                    <h3>Dados gerais de Marte</h3>
+                    <ul>
+                        <li>Diâmetro: 6794 km.</li>
+                        <li>Área de superfície: 144.800.000 km².</li>
+                        <li> Massa: 6,42 x 1023 kg.</li>
+                        <li>Densidade: 3,93 g/cm³.</li>
+                        <li>Gravidade: 3,71 m/s².</li>
+                        <li>Distância do Sol: 227.940.000 km.</li>
+                        <li>Satélite natural: duas luas, Phobos e Deimos.</li>
+                        <li>Período de rotação: 24 horas e 37 minutos.</li>
+                        <li>Período de translação: 687 dias</li>
+                        <li>Temperatura média: -62,77ºC</li>
+                        <li>Composição atmosférica: dióxido de carbono, nitrogênio e argônio</li>
+                    </ul>
+            </div>
+        </main>
+        <footer> <!--Fundo cinza escuro, nome loja, sloganzinho, ano-->
+            <p>© Loja Planetária 2022 - 2022. A maior loja de planetas do mundo!</p>
+        </footer>
+        
+        <script>
+            //INÍCIO - Script do canvas
+            //linha de pontos laranja
+            var ctx2 = document.getElementById("linha").getContext("2d");
+            var img = new Image();
+            img.src = 'img/bolinha-com-fundo.png';
+            img.onload = function () {
+                var pattern=ctx2.createPattern(img, 'repeat-x');
+                ctx2.fillStyle = pattern;
+                ctx2.fillRect(0,10,3500,25);
+            };
+            //FIM - Script do Canvas
+    
+        </script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,443 @@
+html, body {
+  display: block;
+  background-color: #f1f1f1;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 0 auto;
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+main p {
+  text-align: justify;
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 1.15em;
+}
+
+main h2 {
+  font-family: "Rubik";
+  font-size: 1.5em;
+}
+
+main h3 {
+  font-family: "Rubik";
+  font-size: 1.25em;
+}
+
+header {
+  background-color: #383E50;
+  width: 100%;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  height: 10%;
+}
+
+header h1 {
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  font-family: 'Jura', sans-serif;
+  font-weight: bold;
+  font-size: 3.7em;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #F35D04;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+nav {
+  background-color: #535865;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  height: 8%;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  font-size: 1.3em;
+  text-align: center;
+  margin-top: 0.8%;
+  margin-bottom: 0.8%;
+}
+
+nav ul li {
+  position: relative;
+  display: inline;
+  margin: 2%;
+  font-family: "Rubik";
+}
+
+nav ul a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav ul li:hover a {
+  color: #F35D04;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.slideshow {
+  margin: 0 auto;
+  position: relative;
+  padding: 0%;
+  margin-bottom: 0;
+}
+
+.slides {
+  display: none;
+  margin-bottom: 0;
+}
+
+.anterior, .proximo {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.proximo {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.anterior:hover, .proximo:hover {
+  color: #F35D04;
+}
+
+.ponto {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0.3%;
+  margin-top: 0.6%;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
+}
+
+.ativo, .ponto:hover {
+  background-color: #5F3D04;
+}
+
+.some {
+  -webkit-animation-name: some;
+  -webkit-animation-duration: 1.5s;
+  animation-name: some;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes some {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes some {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pontos {
+  text-align: center;
+  background-color: #383E50;
+  height: 15%;
+  width: 100%;
+}
+
+footer {
+  display: inline-block;
+  position: relative;
+  background-color: #383E50;
+  width: 100%;
+  height: 5%;
+  margin-bottom: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+footer p {
+  margin: 0.5%;
+  font-family: "Rubik";
+  text-align: center;
+  font-size: 1.1em;
+  color: #ffffff;
+}
+
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  width: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 70%;
+  max-height: 10%;
+}
+
+.texto {
+  margin: auto;
+  max-width: 70%;
+}
+
+#mapa {
+  margin: auto;
+  height: 300px;
+  width: 500px;
+}
+
+#certificado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 35%;
+  margin: auto;
+}
+
+.produtos {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  margin: 0 2%;
+}
+
+.produtos a {
+  color: #ffffff;
+}
+
+.produtos ul {
+  background-color: #535865;
+  display: none;
+  position: absolute;
+  min-width: 120%;
+  z-index: 1;
+}
+
+.produtos ul li {
+  background-color: #535865;
+  display: block;
+  padding: 2.5%;
+  font-family: "Rubik";
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.produtos:hover ul {
+  display: block;
+}
+
+.produtos ul li:hover a {
+  color: #ffffff;
+}
+
+.linha {
+  width: 70%;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 1% 0;
+}
+
+.coluna {
+  padding: 0 1.5%;
+  float: left;
+}
+
+.contato label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.contato input, .contato textarea {
+  display: inline-block;
+  margin-bottom: 1%;
+  padding: 1% 2%;
+  width: 100%;
+}
+
+input,
+select,
+textarea {
+  font-family: "Arial";
+  /* 1 */
+  font-size: 1em;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+a.botao, input.botao {
+  background: #009b3a;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 5px 0;
+  display: inline-block;
+  border: none;
+}
+
+.contato input.botao {
+  width: auto;
+}
+
+.iconesContato {
+  width: 2%;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+.conteudo-extra {
+  background: #f0f0f3;
+}
+
+.sem-padding {
+  padding: 0 !important;
+}
+
+ul.sem-marcador, ol.sem-marcador {
+  list-style: none;
+}
+
+.contatos {
+  text-align: left;
+  display: inline-block;
+  background-color: #d4d4d4;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.texto ul {
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 1.15em;
+}
+
+.planetas {
+  display: inline-block;
+  width: 18%;
+  margin: auto;
+}
+
+.planetas img {
+  max-width: 100%;
+}
+
+.planetas h3 {
+  margin: 2%;
+}
+
+.anuncios {
+  text-align: center;
+}
+
+.anuncios a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.textofoto {
+  display: block;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+.textofoto img {
+  width: 25%;
+  margin: 0;
+}
+
+.textofoto p {
+  margin: auto;
+  max-width: 60%;
+}
+
+.textofoto h3 {
+  display: block;
+  width: 10%;
+  top: 0;
+}
+
+.infoplaneta {
+  text-align: center;
+}
+
+.infoplaneta ul {
+  text-align: left;
+  margin: auto;
+}
+/*# sourceMappingURL=main.css.map */
